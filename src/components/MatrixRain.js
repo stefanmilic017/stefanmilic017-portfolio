@@ -4,6 +4,8 @@ import MatrixRainStream from "./MatrixRainStream";
 
 const MatrixRain = () => {
   const [streamCount, setStreamCount] = useState(4);
+  
+  useEffect(() => {  
     const handleResize = () => {
     if (window.innerWidth > 1920) {
       setStreamCount(8);
@@ -18,8 +20,6 @@ const MatrixRain = () => {
       setStreamCount(1);
     }
   };
-
-  useEffect(() => {
     // Add the event listener when the component mounts
     window.addEventListener("resize", handleResize);
 
@@ -27,7 +27,7 @@ const MatrixRain = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [handleResize]);
+  }, []);
 
   const matrixStreams = new Array(streamCount)
     .fill()
