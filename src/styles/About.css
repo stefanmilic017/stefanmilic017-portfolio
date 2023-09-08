@@ -1,0 +1,148 @@
+.code {
+    position: relative;
+    font-size: 20px;
+    margin: 10px 0;
+}
+.code::after {
+    color: #617674;
+    content: attr(data-line-nr);
+    font-family: Roboto Mono,Courier New,Courier,monospace!important;
+    left: -30px;
+    position: absolute;
+    top: 0;
+    z-index: 3;
+}
+.about {
+    padding:100px 0;
+}
+.declaration, .variable {
+    display: inline;
+}
+.declaration {
+    color:rgb(38 102 203);
+}
+.variable {
+    color:rgb(59 193 255);
+}
+.string {
+    color:#24e33a;
+}
+
+.cursor::before {
+    animation: blink .8s infinite;
+    animation-delay: 6s;
+    content: " | ";
+    opacity: 0;
+}
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+.btn-download {
+    margin-top: 200px;
+    text-align: center;
+}
+.btn {
+    text-decoration: none;
+    background-color: rgb(61 218 60);
+    color:#000;
+    border-radius: 15px;
+    padding: 10px 20px;
+    font-size: 20px;
+    box-shadow: 0px 12px 18px -6px rgba(61, 218, 60, 0.6);
+    transition: 0.3s;
+}
+.btn:hover {
+    background-color: #fff;
+    color:#000;
+    transition: 0.3s;
+    animation: resize 1s;
+}
+@keyframes resize {
+    to {
+        color: 'red';
+    }
+}
+
+:root {
+    --typewriterSpeed: 0.5s;
+}
+
+.codeText {
+    position: relative;
+    display: inline-block;
+}
+.codeText::before,
+.codeText::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    animation-duration: var(--typewriterSpeed);
+    animation-fill-mode: forwards;
+}
+
+.codeText::before {
+    background: rgb(0 2 0);
+    animation: typewriter var(--typewriterSpeed) steps(28) 0.25s forwards;
+}
+.codeText::after {
+    width: .125em;
+    background: #fff;
+    opacity: 0;
+    animation: 
+    typewriter var(--typewriterSpeed) steps(28) 0.25s forwards,
+    blink 750ms steps(28) 0.25s forwards;
+}
+
+.code-2::before {
+    animation-delay: 0.75s;
+    animation-timing-function: steps(153);
+    animation-duration: 0.75s;
+}
+.code-2::after {
+    animation-delay: 0.75s,0.75s;
+    animation-timing-function: steps(153), steps(153);
+    animation-duration: 0.75s;
+}
+.code-3::before {
+    animation-delay: 1.25s;
+    animation-timing-function: steps(39);
+}
+.code-3::after {
+    animation-delay: 1.25s,1.25s;
+    animation-timing-function: steps(39), steps(39);
+}
+.code-4::before {
+    animation-delay: 1.75s;
+    animation-timing-function: steps(61);
+}
+.code-4::after {
+    animation-delay: 1.75s,1.75s;
+    animation-timing-function: steps(61), steps(61);
+}
+.code-5::before {
+    animation-delay: 2.25s;
+    animation-timing-function: steps(79);
+}
+.code-5::after {
+    animation-delay: 2.25s,2.25s;
+    animation-timing-function: steps(79), steps(79);
+}
+
+@keyframes typewriter {
+    to { 
+        left: 100%
+    };
+}

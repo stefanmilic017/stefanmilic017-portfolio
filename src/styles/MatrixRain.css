@@ -1,0 +1,32 @@
+.hero {
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    height: 100vh;
+    border-bottom: 1px solid #3dda3c30;
+}
+.matrix {
+    position: absolute;
+    display: flex;
+}
+
+.rain-stream {
+    color: #20c20e;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    white-space: nowrap;
+    user-select: none;
+    text-shadow: 0px 0px 8px rgba(32, 194, 14, 0.8);
+    font-size: 50px;
+}
+
+.char {
+    margin-top: -12px;
+    font-family: digital7;
+}
+
+@font-face {
+    font-family: digital7;
+    src: url('../fonts/digital-7.ttf');
+    font-display: swap;
+}

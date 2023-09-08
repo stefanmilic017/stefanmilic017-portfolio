@@ -1,0 +1,200 @@
+.menu-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.menu {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(45deg);
+    z-index: 100;
+}
+.menu .toggle {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    background:#fff;
+    color:#222237;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    cursor: pointer;
+    transition: 0.5s;
+    transform: rotate(45deg);
+}
+.menu .toggle.active{
+    transform: rotate(270deg);
+    box-shadow: 0 0 0 60px #fff,
+    0 0 0 68px #fff;
+    background: #222237;
+    color:#fff;
+}
+.menu li {
+    position: absolute;
+    left: 10px;
+    list-style: none;
+    transform: rotate(calc(360deg / 4 * var(--i))) 
+    translateX(40px);
+    transform-origin: 140px;
+    visibility: hidden;
+    opacity: 0;
+    transition: .5s;
+    z-index: 10;
+}
+.menu.active li {
+    visibility: visible;
+    opacity: 1;
+}
+.menu li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 55px;
+    height: 55px;
+    font-size: 2em;
+    color: #222237;
+    transform: rotate(calc(360deg / -4 * var(--i)));
+    border-radius: 50%;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.menu li a > * {
+    transform: rotate(315deg);
+}
+.menu.active li.active {
+    transform: rotate(calc(360deg / 4 * var(--i)))
+    translateX(12px);
+}
+.indicator {
+    visibility: hidden;
+    position: absolute;
+    left: calc(50% + 2.5px);
+    transform-origin: right;
+    width: 100px;
+    height: 1px;
+    background: transparent;
+    pointer-events: none;
+    transition: .5s;
+}
+.indicator::before{
+    content:'';
+    position: absolute;
+    top: -27.5px;
+    left: 72px;
+    width: 55px;
+    height: 55px;
+    background: #222237;
+    box-shadow:  0 0 0 6px #51f93e;
+    border-radius: 50%;
+    transition: 0.5s;
+    opacity: 0;
+}
+.menu.active .indicator::before {
+    opacity: 1;
+    top: -27.5px;
+    left: -27.5px;
+    background: #51f93e;
+    box-shadow: 0 0 0 6px #000000;
+}
+.menu li:nth-child(2).active ~ .indicator {
+    transform: translateX(-103px) rotate(0deg);
+}
+.menu li:nth-child(3).active ~ .indicator {
+    transform: translateX(-103px) rotate(90deg);
+}
+.menu li:nth-child(4).active ~ .indicator {
+    transform: translateX(-103px) rotate(180deg);
+}
+.menu li:nth-child(5).active ~ .indicator {
+    transform: translateX(-103px) rotate(270deg);
+}
+
+.fixed {
+    position: fixed;
+    bottom: -35px;
+    right: -35px;
+    opacity: .8;
+}
+.opacity {
+    opacity: 1!important;
+}
+
+/**/
+.hamburger {
+    display: none;
+    cursor: pointer;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    z-index: 200;
+}
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin:5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #fff;
+}
+
+.hamburgerMenu {
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    z-index: 199;
+    color: #fff;
+    background-color: #000000;
+    position: fixed;
+    transition: .3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.hamburgerMenu ul {
+    text-align: center;
+}
+.nav-item {
+    margin: 100px 0;
+    list-style-type: none;
+}
+.nav-item .nav-link {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 20px 10px;
+    text-decoration: none;
+    transition: .5s ease-in-out;
+}
+@media (max-width:768px) {
+    .hamburger{
+        display: block;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .menu {
+        display: none;
+    }
+    .hamburgerMenu.active {
+        left:0;
+    }
+}
