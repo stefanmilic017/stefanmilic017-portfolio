@@ -81,17 +81,6 @@ const About = () => {
           <span>&#93;&#59;</span>
         </div>
       </div>
-    
-      
-      <div className="btn-download">
-        <a
-          className="btn"
-          href="resume/StefanMilicCV.pdf"
-          download="Stefan Milic CV"
-        >
-          Download CV
-        </a>
-      </div>
     </div>
   );
 };
